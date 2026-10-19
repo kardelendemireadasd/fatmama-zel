@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fatmanur'a özel 💗</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh; padding: 20px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: Arial, sans-serif; text-align: center;
+  background: linear-gradient(135deg,#ffe0ec,#fff5f8,#ffcce0);
+  color: #bd376c; overflow: hidden;
+}
+.card {
+  width: 100%; max-width: 380px; padding: 30px 20px;
+  background: #ffffffd9; border: 3px solid white;
+  border-radius: 30px; box-shadow: 0 10px 35px #d85d8b30;
+  position: relative; z-index: 1;
+}
+.bear { font-size: 85px; animation: sway 2s infinite; }
+h1 { font-size: 27px; }
+p { line-height: 1.7; }
+button {
+  background: #f16b9d; color: white; border: none;
+  border-radius: 30px; padding: 15px 22px;
+  font-size: 17px; font-weight: bold; cursor: pointer;
+}
+#surprise { display: none; animation: pop .7s ease; }
+.heart {
+  position: fixed; bottom: -40px; pointer-events: none;
+  animation: float 3s ease-out forwards; z-index: 5;
+}
+@keyframes float {
+  to { transform: translateY(-110vh) rotate(30deg); opacity: 0; }
+}
+@keyframes sway {
+  0%,100% { transform: rotate(-6deg); }
+  50% { transform: rotate(6deg); }
+}
+@keyframes pop {
+  from { opacity: 0; transform: scale(.6); }
+  to { opacity: 1; transform: scale(1); }
+}
+</style>
+</head>
+<body>
+<main class="card">
+  <div class="bear">🧸💗</div>
+  <h1>Fatmanur'a özel 🌸</h1>
+  <p id="intro">Sana minicik bir sürprizim var! 🙈<br>
+  Açmak için butona dokun. 💌</p>
+  <button onclick="openLove()">💌 Sürprizi aç</button>
+  <section id="surprise">
+    <div style="font-size:45px">🥹💕</div>
+    <h1>Seni çok seviyorum ❤️</h1>
+    <p>İyi ki varsın Fatmanur! 🌷<br>
+    Sen benim için çok özelsin.<br>
+    Kalbimin en güzel yeri senin. 💖</p>
+    <div style="font-size:40px">🐻💗🐻</div>
+    <p>Bu sürpriz sadece sana özel! 💘</p>
+  </section>
+</main>
+<script>
+function openLove() {
+  document.getElementById("surprise").style.display = "block";
+  document.getElementById("intro").textContent =
+    "Sana kocaman bir sarılma gönderiyorum! 🫶";
+  for (let i = 0; i < 35; i++) {
+    setTimeout(() => {
+      const h = document.createElement("span");
+      h.className = "heart";
+      h.textContent = ["💗","💖","💕","❤️","🌸","✨"][Math.floor(Math.random()*6)];
+      h.style.left = Math.random()*100 + "vw";
+      h.style.fontSize = (20+Math.random()*25) + "px";
+      h.style.animationDuration = (2+Math.random()*2) + "s";
+      document.body.appendChild(h);
+      setTimeout(() => h.remove(), 4500);
+    }, i*60);
+  }
+}
+</script>
+</body>
+</html>
